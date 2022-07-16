@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>shkim Django Applications</h2>
+    <ul>
+        {% for appname in app_list %}
+{% with appname|add:":"|add:"index" as urlvar %}
+            <li><a href="{% url urlvar %}">{{ appname }}</a></li> <!--클릭 시 접속 때마다 URL추출하기 위해 {%url urlvar%}태그 사용-->
+{% endwith %}                                               
+        {% endfor %}
+    </ul>
+{% endblock content %}
